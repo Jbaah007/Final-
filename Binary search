@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-// Generic binary search function using templates
+// So the Generic binary search function using templates
 template <typename T>
 int binarySearch(const T list[], T key, int size) {
     int low = 0;
@@ -31,13 +31,13 @@ int main() {
     int indexInt = binarySearch(numbers, targetInt, 5);
     cout << "Index of " << targetInt << " in numbers: " << indexInt << endl;
 
-    // Testing with doubles
+    // Test with doubles
     double prices[] = {1.50, 2.75, 3.99, 5.00, 6.49};
     double targetDouble = 5.00;
     int indexDouble = binarySearch(prices, targetDouble, 5);
     cout << "Index of " << targetDouble << " in prices: " << indexDouble << endl;
 
-    // Testing with strings
+    // Test with strings
     string fruits[] = {"apple", "banana", "grape", "mango", "peach"};
     string targetString = "mango";
     int indexString = binarySearch(fruits, targetString, 5);
