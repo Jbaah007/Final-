@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Generic binary search function using templates
+template <typename T>
+int binarySearch(const T list[], T key, int size) {
+    int low = 0;
+    int high = size - 1;
+
+    while (low <= high) {
+        int mid = (low + high) / 2;
+
+        if (key < list[mid]) {
+            high = mid - 1;
+        } else if (key > list[mid]) {
+            low = mid + 1;
+        } else {
+            return mid; // Element found
+        }
+    }
+
+    // Element not found; return negative insertion point - 1
+    return -low - 1;
+}
+
+int main() {
+    // Test with integers
+    int numbers[] = {18, 21, 25, 30, 35};
+    int targetInt = 25;
+    int indexInt = binarySearch(numbers, targetInt, 5);
+    cout << "Index of " << targetInt << " in numbers: " << indexInt << endl;
+
+    // Testing with doubles
+    double prices[] = {1.50, 2.75, 3.99, 5.00, 6.49};
+    double targetDouble = 5.00;
+    int indexDouble = binarySearch(prices, targetDouble, 5);
+    cout << "Index of " << targetDouble << " in prices: " << indexDouble << endl;
+
+    // Testing with strings
+    string fruits[] = {"apple", "banana", "grape", "mango", "peach"};
+    string targetString = "mango";
+    int indexString = binarySearch(fruits, targetString, 5);
+    cout << "Index of \"" << targetString << "\" in fruits: " << indexString << endl;
+
+    return 0;
+}
